@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranDen.GameLib.Bingo", "GranDen.GameLib.Bingo\GranDen.GameLib.Bingo.csproj", "{4C025F4D-8887-4CD3-979F-C678CA2424CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranDen.GameLib.Bingo", "src\GranDen.GameLib.Bingo\GranDen.GameLib.Bingo.csproj", "{4C025F4D-8887-4CD3-979F-C678CA2424CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3D34B0D9-98A6-4F5A-A418-528F9C251FE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{58FC40A0-7F0F-4CBB-8D0F-B9A6C3A73691}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetCore", "NetCore", "{05413DC4-D319-4E55-B64F-C726A3726473}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreBingoTest", "test\netcore\NetCoreBingoTest\NetCoreBingoTest.csproj", "{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +23,20 @@ Global
 		{4C025F4D-8887-4CD3-979F-C678CA2424CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C025F4D-8887-4CD3-979F-C678CA2424CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C025F4D-8887-4CD3-979F-C678CA2424CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C025F4D-8887-4CD3-979F-C678CA2424CB} = {3D34B0D9-98A6-4F5A-A418-528F9C251FE1}
+		{05413DC4-D319-4E55-B64F-C726A3726473} = {58FC40A0-7F0F-4CBB-8D0F-B9A6C3A73691}
+		{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3} = {05413DC4-D319-4E55-B64F-C726A3726473}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1AA09AE-D1B5-42BD-8B28-77F85170F272}
 	EndGlobalSection
 EndGlobal
-

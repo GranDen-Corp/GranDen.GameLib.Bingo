@@ -21,45 +21,19 @@ namespace NetCoreBingoTest
         }
 
         [Theory]
-        [MemberData(nameof(Normal4X4_BingoPrizRReData.HorizontalPrize), MemberType = typeof(Normal4X4_BingoPrizRReData))]
+        [MemberData(nameof(Normal4X4_BingoPrizRReData.HorizontalPrize),
+            MemberType = typeof(Normal4X4_BingoPrizRReData))]
         public void TestShouldGetHorizontalPrize(List<PrizeLine2D> prizeLines)
         {
             Assert.NotEmpty(prizeLines);
 
             //Arrange
+            List<MarkPoint2D> test1StRowData = _marked1StRowData;
+            List<MarkPoint2D> test2NdRowData = _marked2NdRowData;
+            List<MarkPoint2D> test3RdRowData = _marked3RdRowData;
+            List<MarkPoint2D> test4ThRowData = _marked4ThRowData;
+
             var bingo = new Bingo2dPrizeClincher(prizeLines);
-
-            var test1StRowData = new List<MarkPoint2D>
-            {
-                new MarkPoint2D(0, 0, true), 
-                new MarkPoint2D(1, 0, true), 
-                new MarkPoint2D(2, 0, true), 
-                new MarkPoint2D(3, 0, true)
-            };
-
-            var test2NdRowData = new List<MarkPoint2D>
-            {
-                new MarkPoint2D(0, 1, true),
-                new MarkPoint2D(1, 1, true),
-                new MarkPoint2D(2, 1, true),
-                new MarkPoint2D(3, 1, true)
-            };
-            
-            var test3RdRowData = new List<MarkPoint2D>
-            {
-                new MarkPoint2D(0, 2, true),
-                new MarkPoint2D(1, 2, true),
-                new MarkPoint2D(2, 2, true),
-                new MarkPoint2D(3, 2, true)
-            };
-
-            var test4ThRowData = new List<MarkPoint2D>
-            {
-                new MarkPoint2D(0, 3, true),
-                new MarkPoint2D(1, 3, true),
-                new MarkPoint2D(2, 3, true),
-                new MarkPoint2D(3, 3, true)
-            };
 
             //Act
             var match1 = bingo.Decide(test1StRowData);
@@ -84,5 +58,104 @@ namespace NetCoreBingoTest
             Assert.Single(match4);
             Assert.Equal("Horizontal Line4", match4[0]);
         }
+
+        [Theory]
+        [MemberData(nameof(Normal4X4_BingoPrizRReData.VerticalPrize), MemberType = typeof(Normal4X4_BingoPrizRReData))]
+        public void TestShouldGetVerticalPrize(List<PrizeLine2D> prizeLines)
+        {
+            Assert.NotEmpty(prizeLines);
+            
+            //Arrange
+            var test1StColData = _marked1StColData;
+            var test2NdColData = _marked2NdColData;
+            var test3RdColData = _marked3rdColData;
+            var test4ThColData = _marked4thColData;
+            
+            var bingo = new Bingo2dPrizeClincher(prizeLines);
+            
+            //Act
+            var match1 = bingo.Decide(test1StColData);
+            var match2 = bingo.Decide(test2NdColData);
+            var match3 = bingo.Decide(test3RdColData);
+            var match4 = bingo.Decide(test4ThColData);
+            
+            //Assert
+            Assert.NotEmpty(match1);
+            Assert.Single(match1);
+            Assert.Equal("Vertical Line1", match1[0]);
+            
+            Assert.NotEmpty(match2);
+            Assert.Single(match2);
+            Assert.Equal("Vertical Line2", match2[0]);
+            
+            Assert.NotEmpty(match3);
+            Assert.Single(match3);
+            Assert.Equal("Vertical Line3", match3[0]);
+        }
+        
+        readonly List<MarkPoint2D> _marked1StRowData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(0, 0, true),
+            new MarkPoint2D(1, 0, true),
+            new MarkPoint2D(2, 0, true),
+            new MarkPoint2D(3, 0, true)
+        };
+
+        readonly List<MarkPoint2D> _marked2NdRowData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(0, 1, true),
+            new MarkPoint2D(1, 1, true),
+            new MarkPoint2D(2, 1, true),
+            new MarkPoint2D(3, 1, true)
+        };
+
+        readonly List<MarkPoint2D> _marked3RdRowData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(0, 2, true),
+            new MarkPoint2D(1, 2, true),
+            new MarkPoint2D(2, 2, true),
+            new MarkPoint2D(3, 2, true)
+        };
+
+        readonly List<MarkPoint2D> _marked4ThRowData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(0, 3, true),
+            new MarkPoint2D(1, 3, true),
+            new MarkPoint2D(2, 3, true),
+            new MarkPoint2D(3, 3, true)
+        };
+
+        readonly List<MarkPoint2D> _marked1StColData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(0, 0, true),
+            new MarkPoint2D(0, 1, true),
+            new MarkPoint2D(0, 2, true),
+            new MarkPoint2D(0, 3, true)
+        };
+
+        readonly List<MarkPoint2D> _marked2NdColData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(1, 0, true),
+            new MarkPoint2D(1, 1, true),
+            new MarkPoint2D(1, 2, true),
+            new MarkPoint2D(1, 3, true)
+        };
+
+        readonly List<MarkPoint2D> _marked3rdColData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(2, 0, true),
+            new MarkPoint2D(2, 1, true),
+            new MarkPoint2D(2, 2, true),
+            new MarkPoint2D(2, 3, true)
+        };
+        
+        readonly List<MarkPoint2D> _marked4thColData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(2, 0, true),
+            new MarkPoint2D(2, 1, true),
+            new MarkPoint2D(2, 2, true),
+            new MarkPoint2D(2, 3, true)
+        };
+        
     }
 }

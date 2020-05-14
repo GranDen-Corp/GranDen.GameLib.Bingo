@@ -35,7 +35,7 @@ namespace NetCoreBingoTest
             }
         }
 
-        protected static List<PrizeLine2D> _horizontalPrize => new List<PrizeLine2D>
+        private static List<PrizeLine2D> _horizontalPrize => new List<PrizeLine2D>
         {
             new PrizeLine2D(new List<(int X, int Y)>{(0,0), (1,0), (2,0), (3,0)},"Horizontal Line1"),
             new PrizeLine2D(new List<(int X, int Y)>{(0,1), (1,1), (2,1), (3,1)},"Horizontal Line2"),
@@ -43,7 +43,7 @@ namespace NetCoreBingoTest
             new PrizeLine2D(new List<(int X, int Y)>{(0,3), (1,3), (2,3), (3,3)},"Horizontal Line4"),
         };
 
-        protected static List<PrizeLine2D> _verticalPrize => new List<PrizeLine2D>
+        private static List<PrizeLine2D> _verticalPrize => new List<PrizeLine2D>
         {
             new PrizeLine2D(new List<(int X, int Y)>{(0,0), (0,1), (0,2), (0,3)},"Vertical Line1"),
             new PrizeLine2D(new List<(int X, int Y)>{(1,0), (1,1), (1,2), (1,3)},"Vertical Line2"),
@@ -51,10 +51,10 @@ namespace NetCoreBingoTest
             new PrizeLine2D(new List<(int X, int Y)>{(3,0), (3,1), (3,2), (3,3)},"Vertical Line4"),
         };
 
-        protected static List<PrizeLine2D> _diagonalPrize => new List<PrizeLine2D>
+        private static List<PrizeLine2D> _diagonalPrize => new List<PrizeLine2D>
         {
             new PrizeLine2D(new List<(int X, int Y)>{(0,0), (1,1), (2,2), (3,3)},"Diagonal Line1"),
-            new PrizeLine2D(new List<(int X, int Y)>{(3,0), (2,1), (1,2), (0,3)},"Diagonal Line1"),
+            new PrizeLine2D(new List<(int X, int Y)>{(3,0), (2,1), (1,2), (0,3)},"Diagonal Line2"),
         };
     }
 }

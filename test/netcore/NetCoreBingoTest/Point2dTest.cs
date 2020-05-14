@@ -91,8 +91,38 @@ namespace NetCoreBingoTest
             Assert.NotEmpty(match3);
             Assert.Single(match3);
             Assert.Equal("Vertical Line3", match3[0]);
+            
+            Assert.NotEmpty(match4);
+            Assert.Single(match4);
+            Assert.Equal("Vertical Line4", match4[0]);
         }
-        
+
+        [Theory]
+        [MemberData(nameof(Normal4X4_BingoPrizRReData.DiagonalPrize), MemberType = typeof(Normal4X4_BingoPrizRReData))]
+        public void TestShouldGetDiagonalPrize(List<PrizeLine2D> prizeLines)
+        {
+            Assert.NotEmpty(prizeLines);
+
+            //Arrange
+            var test1DiagonalData = _markedSlashDiagonalData;
+            var test2DiagonalData = _markedBackSlashDiagonalData;
+
+            var bingo = new Bingo2dPrizeClincher(prizeLines);
+
+            //Act
+            var match1 = bingo.Decide(test1DiagonalData);
+            var match2 = bingo.Decide(test2DiagonalData);
+            
+            //Assert
+            Assert.NotEmpty(match1);
+            Assert.Single(match1);
+            Assert.Equal("Diagonal Line1", match1[0]);
+
+            Assert.NotEmpty(match2);
+            Assert.Single(match2);
+            Assert.Equal("Diagonal Line2", match2[0]);
+        }
+
         readonly List<MarkPoint2D> _marked1StRowData = new List<MarkPoint2D>
         {
             new MarkPoint2D(0, 0, true),
@@ -151,11 +181,27 @@ namespace NetCoreBingoTest
         
         readonly List<MarkPoint2D> _marked4thColData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(2, 0, true),
-            new MarkPoint2D(2, 1, true),
-            new MarkPoint2D(2, 2, true),
-            new MarkPoint2D(2, 3, true)
+            new MarkPoint2D(3, 0, true),
+            new MarkPoint2D(3, 1, true),
+            new MarkPoint2D(3, 2, true),
+            new MarkPoint2D(3, 3, true)
         };
-        
+
+        readonly List<MarkPoint2D> _markedSlashDiagonalData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(0, 0, true),
+            new MarkPoint2D(1, 1, true),
+            new MarkPoint2D(2, 2, true),
+            new MarkPoint2D(3, 3, true)
+        };
+
+        readonly List<MarkPoint2D> _markedBackSlashDiagonalData = new List<MarkPoint2D>
+        {
+            new MarkPoint2D(3, 0, true),
+            new MarkPoint2D(2, 1, true),
+            new MarkPoint2D(1, 2, true),
+            new MarkPoint2D(0, 3, true)
+        };
+
     }
 }

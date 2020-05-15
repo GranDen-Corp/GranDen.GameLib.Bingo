@@ -1,0 +1,39 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  sourceProject: 'src/GranDen.GameLib.Bingo/GranDen.GameLib.Bingo.csproj'
+  testNetCoreProject: 'test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: restore
+    projects: |
+      '$(sourceProject)',
+      '$(testNetCoreProject)'
+    feedsToUse: 'select'
+  displayName: "Restore project's Nuget"
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    projects: '$(sourceProject)'
+    arguments: '--configuration $(buildConfiguration)'
+  displayName: "Build source project"
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '$(testNetCoreProject)'
+    arguments: '--configuration $(buildConfiguration)'
+  displayName: "Run .net core test project"

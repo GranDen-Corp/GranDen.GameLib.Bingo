@@ -14,24 +14,50 @@ variables:
   sourceProject: 'src/GranDen.GameLib.Bingo/GranDen.GameLib.Bingo.csproj'
   testNetCoreProject: 'test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj'
 
-steps:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: restore
-    projects: '$(sourceProject)'
-    feedsToUse: 'select'
-  displayName: "Restore source project's Nuget"
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    steps:
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: restore
+        projects: '$(sourceProject)'
+        feedsToUse: 'select'
+      displayName: "Restore source project's Nuget"
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: build
+        projects: '$(sourceProject)'
+        arguments: '--configuration $(buildConfiguration)'
+      displayName: "Build source project"
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: build
-    projects: '$(sourceProject)'
-    arguments: '--configuration $(buildConfiguration)'
-  displayName: "Build source project"
+- stage: Test
+  jobs:
+  - job: Test
+    steps:
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: test
+          projects: '$(testNetCoreProject)'
+          arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+          publishTestResults: true
+        displayName: "Run .net core test project"
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: 'Cobertura'
+          summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+        displayName: "Publish code coverage report"
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: test
-    projects: '$(testNetCoreProject)'
-    arguments: '--configuration $(buildConfiguration)'
-  displayName: "Run .net core test project"
+# - stage: Publish
+#   jobs:
+#   - job: Publish
+#     steps:
+#     - task: NuGetCommand@2
+#       inputs:
+#         command: push
+#         packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
+#         nuGetFeedType: 'internal'
+#         publishVstsFeed: 'GranDen-Corp'
+#       displayName: "Publish Nuget package to Artifacts"

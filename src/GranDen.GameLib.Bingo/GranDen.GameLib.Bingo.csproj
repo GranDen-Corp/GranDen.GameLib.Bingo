@@ -2,10 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Bingo Game Library</Title>
+    <Copyright>Copyright (c) 2020 GranDen Corp.(狂點軟體開發)</Copyright>
+    <PackageProjectUrl>https://github.com/GranDen-Corp/GranDen.GameLib.Bingo</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/GranDen-Corp/GranDen.GameLib.Bingo.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageTags>game-lib</PackageTags>
+    <Company>GranDen Inc.</Company>
+    <Authors>Isak Pao</Authors>
+    <Description>A Game Library for easily develop the bingo game.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 
 </Project>

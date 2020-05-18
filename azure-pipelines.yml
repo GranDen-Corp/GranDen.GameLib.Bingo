@@ -54,10 +54,16 @@ stages:
   jobs:
   - job: Publish
     steps:
-    - task: NuGetCommand@2
-      inputs:
-        command: push
-        packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
-        nuGetFeedType: 'internal'
-        publishVstsFeed: 'GranDen-Corp'
-      displayName: "Publish Nuget package to Artifacts"
+      - task: NuGetCommand@2
+        inputs:
+          command: pack
+          packagesToPack: '$(sourceProject)'
+          versioningScheme: byBuildNumber
+        displayName: "Pack test Nuget package(s)"
+      - task: NuGetCommand@2
+        inputs:
+          command: push
+          packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
+          nuGetFeedType: 'internal'
+          publishVstsFeed: 'GranDen-Corp'
+        displayName: "Publish test Nuget package to Artifacts"

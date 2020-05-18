@@ -50,14 +50,14 @@ stages:
           summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResults/Coverage/*.cobertura.xml'
         displayName: "Publish code coverage report"
 
-# - stage: Publish
-#   jobs:
-#   - job: Publish
-#     steps:
-#     - task: NuGetCommand@2
-#       inputs:
-#         command: push
-#         packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
-#         nuGetFeedType: 'internal'
-#         publishVstsFeed: 'GranDen-Corp'
-#       displayName: "Publish Nuget package to Artifacts"
+- stage: Publish
+  jobs:
+  - job: Publish
+    steps:
+    - task: NuGetCommand@2
+      inputs:
+        command: push
+        packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
+        nuGetFeedType: 'internal'
+        publishVstsFeed: 'GranDen-Corp'
+      displayName: "Publish Nuget package to Artifacts"

@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranDen.GameLib.Bingo", "src\GranDen.GameLib.Bingo\GranDen.GameLib.Bingo.csproj", "{4C025F4D-8887-4CD3-979F-C678CA2424CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3D34B0D9-98A6-4F5A-A418-528F9C251FE1}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{58FC40A0-7F0F-4CBB-8D0F-B9A6C3A73691}"
 EndProject

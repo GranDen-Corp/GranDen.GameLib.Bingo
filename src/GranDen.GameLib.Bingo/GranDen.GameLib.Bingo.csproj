@@ -26,6 +26,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="GranDen.GameLib.Bingo.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 

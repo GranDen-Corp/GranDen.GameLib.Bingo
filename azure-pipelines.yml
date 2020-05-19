@@ -53,12 +53,29 @@ stages:
 - stage: Publish
   jobs:
   - job: Publish
+    variables:
+      packageVer: ""
     steps:
+      - task: PowerShell@2
+        name: Fetch_Nuget_Ver
+        inputs:
+          pwsh: true
+          script: |
+            $packageVer = ./scripts/get_build_verison.ps1
+            echo "##vso[task.setvariable variable=NugetVerMajor;]$($packageVer.Major)"
+            echo "##vso[task.setvariable variable=NugetVerMinor;]$($packageVer.Minor)"
+            echo "##vso[task.setvariable variable=NugetVerPatch;]$($packageVer.Patch)"
+            echo "##vso[task.setvariable variable=NugetVerRevis;]$($packageVer.Patch)"
+        displayName: "Fetch version number from Directory.Build.props file"
       - task: NuGetCommand@2
         inputs:
           command: pack
           packagesToPack: '$(sourceProject)'
-          versioningScheme: byBuildNumber
+          includeSymbols: true
+          versioningScheme: byPrereleaseNumber
+          majorVersion: '$(NugetVerMajor)'
+          minorVersion: '$(NugetVerMinor)'
+          patchVersion: '$(NugetVerPatch)'
         displayName: "Pack test Nuget package(s)"
       - task: NuGetCommand@2
         inputs:

@@ -53,13 +53,12 @@ stages:
 - stage: Publish
   jobs:
   - job: Publish
-    variables:
-      packageVer: ""
     steps:
       - task: PowerShell@2
         name: Fetch_Nuget_Ver
         inputs:
           pwsh: true
+          targetType: inline
           script: |
             $packageVer = ./scripts/get_build_verison.ps1
             echo "##vso[task.setvariable variable=NugetVerMajor;]$($packageVer.Major)"

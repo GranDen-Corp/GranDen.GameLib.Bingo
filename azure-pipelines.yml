@@ -54,6 +54,12 @@ stages:
   jobs:
   - job: Publish
     steps:
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: build
+          projects: '$(sourceProject)'
+          arguments: '--configuration debug'
+        displayName: "Build DEBUG version of source project"
       - task: PowerShell@2
         name: Fetch_Nuget_Ver
         inputs:

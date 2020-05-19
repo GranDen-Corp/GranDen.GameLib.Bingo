@@ -60,7 +60,7 @@ stages:
           pwsh: true
           targetType: inline
           script: |
-            $packageVer = & "$(System.DefaultWorkingDirectory)/scripts/get_build_verison.ps1"
+            $packageVer = & "$(System.DefaultWorkingDirectory)/scripts/get_build_version.ps1"
             echo "##vso[task.setvariable variable=NugetVerMajor;]$($packageVer.Major)"
             echo "##vso[task.setvariable variable=NugetVerMinor;]$($packageVer.Minor)"
             echo "##vso[task.setvariable variable=NugetVerPatch;]$($packageVer.Patch)"

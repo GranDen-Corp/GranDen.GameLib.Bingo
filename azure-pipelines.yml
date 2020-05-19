@@ -83,10 +83,10 @@ stages:
           minorVersion: '$(NugetVerMinor)'
           patchVersion: '$(NugetVerPatch)'
         displayName: "Pack test NuGet package(s)"
-      - task: NuGetCommand@2
-        inputs:
-          command: push
-          packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
-          nuGetFeedType: 'internal'
-          publishVstsFeed: 'GranDen'
-        displayName: "Publish test NuGet package to Azure Artifacts"
+      # - task: NuGetCommand@2
+      #   inputs:
+      #     command: push
+      #     packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg'
+      #     nuGetFeedType: 'internal'
+      #     publishVstsFeed: 'GranDen'
+      #   displayName: "Publish test NuGet package to Azure Artifacts"

@@ -54,12 +54,6 @@ stages:
   jobs:
   - job: Publish
     steps:
-      - task: DotNetCoreCLI@2
-        inputs:
-          command: build
-          projects: '$(sourceProject)'
-          arguments: '--configuration debug'
-        displayName: "Build DEBUG version of source project"
       - task: PowerShell@2
         name: Fetch_Nuget_Ver
         inputs:
@@ -72,12 +66,14 @@ stages:
             echo "##vso[task.setvariable variable=NugetVerPatch;]$($packageVer.Patch)"
             echo "##vso[task.setvariable variable=NugetVerRevis;]$($packageVer.Patch)"
         displayName: "Fetch version number from Directory.Build.props file"
-      - task: NuGetCommand@2
+      - task: DotNetCoreCLI@2
         inputs:
           command: pack
           packagesToPack: '$(sourceProject)'
+          verbosityPack: Detailed
           configuration: 'debug'
           includeSymbols: true
+          includesource: true
           versioningScheme: byPrereleaseNumber
           majorVersion: '$(NugetVerMajor)'
           minorVersion: '$(NugetVerMinor)'

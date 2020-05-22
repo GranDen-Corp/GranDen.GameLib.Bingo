@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Title>Bingo Game Library</Title>
     <Copyright>Copyright (c) 2020 GranDen Corp.(狂點軟體開發)</Copyright>
     <PackageProjectUrl>https://github.com/GranDen-Corp/GranDen.GameLib.Bingo</PackageProjectUrl>

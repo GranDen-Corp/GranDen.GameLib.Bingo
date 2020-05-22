@@ -5,6 +5,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Title>Bingo Game Library</Title>
     <Copyright>Copyright (c) 2020 GranDen Corp.(狂點軟體開發)</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/GranDen-Corp/GranDen.GameLib.Bingo</PackageProjectUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/GranDen-Corp/GranDen.GameLib.Bingo.git</RepositoryUrl>

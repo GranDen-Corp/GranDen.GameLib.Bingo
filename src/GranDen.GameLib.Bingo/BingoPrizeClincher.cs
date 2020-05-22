@@ -22,7 +22,7 @@ namespace GranDen.GameLib.Bingo
         /// <summary>
         /// Decide currently achieved bingo line(s).
         /// </summary>
-        /// <param name="inputs">The mark points in (X, Y, true/false) tuple format</param>
+        /// <param name="inputs">The mark points in (x, y, true|false) tuple format</param>
         /// <returns></returns>
         public List<string> Decide(List<MarkPoint2D> inputs)
         {

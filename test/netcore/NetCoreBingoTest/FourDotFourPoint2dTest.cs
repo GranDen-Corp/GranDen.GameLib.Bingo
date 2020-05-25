@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using GranDen.GameLib.Bingo;
 using Xunit;
 
 namespace NetCoreBingoTest
 {
-    public class Point2dTest
+    public class SimplePrizePoint2dTest
     {
         [Fact]
         public void TestNoPrizeLine()
@@ -21,8 +20,7 @@ namespace NetCoreBingoTest
         }
 
         [Theory]
-        [MemberData(nameof(Normal4X4_BingoPrizRReData.HorizontalPrize),
-            MemberType = typeof(Normal4X4_BingoPrizRReData))]
+        [MemberData(nameof(Simple4X4_BingoPrizeData.HorizontalPrize), MemberType = typeof(Simple4X4_BingoPrizeData))]
         public void TestShouldGetHorizontalPrize(List<PrizeLine2D> prizeLines)
         {
             Assert.NotEmpty(prizeLines);
@@ -60,7 +58,7 @@ namespace NetCoreBingoTest
         }
 
         [Theory]
-        [MemberData(nameof(Normal4X4_BingoPrizRReData.VerticalPrize), MemberType = typeof(Normal4X4_BingoPrizRReData))]
+        [MemberData(nameof(Simple4X4_BingoPrizeData.VerticalPrize), MemberType = typeof(Simple4X4_BingoPrizeData))]
         public void TestShouldGetVerticalPrize(List<PrizeLine2D> prizeLines)
         {
             Assert.NotEmpty(prizeLines);
@@ -98,7 +96,7 @@ namespace NetCoreBingoTest
         }
 
         [Theory]
-        [MemberData(nameof(Normal4X4_BingoPrizRReData.DiagonalPrize), MemberType = typeof(Normal4X4_BingoPrizRReData))]
+        [MemberData(nameof(Simple4X4_BingoPrizeData.DiagonalPrize), MemberType = typeof(Simple4X4_BingoPrizeData))]
         public void TestShouldGetDiagonalPrize(List<PrizeLine2D> prizeLines)
         {
             Assert.NotEmpty(prizeLines);

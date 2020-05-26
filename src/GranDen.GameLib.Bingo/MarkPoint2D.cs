@@ -18,7 +18,7 @@ namespace GranDen.GameLib.Bingo
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="marked"></param>
-        public MarkPoint2D(int x, int y, bool marked) : base((x, y))
+        public MarkPoint2D(int x, int y, bool marked = true) : base((x, y))
         {
             Marked = marked;
         }
@@ -34,11 +34,21 @@ namespace GranDen.GameLib.Bingo
         }
 
         /// <summary>
-        /// Init a MarkPoint2D object using base class object and a boolean value to indicate marked or not
+        /// Init a MarkPoint2D object using base class object and an optional boolean value to indicate marked or not
         /// </summary>
         /// <param name="point2D"></param>
         /// <param name="marked"></param>
-        public MarkPoint2D(IntPoint2D point2D, bool marked) : base(point2D.X, point2D.Y)
+        public MarkPoint2D(IntPoint2D point2D, bool marked = true) : base(point2D.X, point2D.Y)
+        {
+            Marked = marked;
+        }
+
+        /// <summary>
+        /// Init a MarkPoint2D object using base class object and an optional boolean value to indicate marked or not
+        /// </summary>
+        /// <param name="pointTuple"></param>
+        /// <param name="marked"></param>
+        public MarkPoint2D((int x, int y) pointTuple, bool marked = true) : base(pointTuple.x, pointTuple.y)
         {
             Marked = marked;
         }

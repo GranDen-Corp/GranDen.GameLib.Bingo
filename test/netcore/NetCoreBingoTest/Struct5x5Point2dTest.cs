@@ -12,12 +12,10 @@ namespace NetCoreBingoTest
         {
             //Arrange
             var bingo = new Bingo2dPrizeClincher<MyPrize>(new List<PrizeLine2D<MyPrize>>());
-            var markedPoints = new List<MarkPoint2D>
-            {
-                new MarkPoint2D((0, 0, true)),
-                new MarkPoint2D((0, 1, true)),
-                new MarkPoint2D((1, 1, false))
-            };
+            var markedPoints =
+                new List<MarkPoint2D>().AddMarkPoint2Ds(
+                    new MarkPoint2D((0, 0)), new MarkPoint2D((0, 1)),
+                    new MarkPoint2D((1, 1)), new MarkPoint2D((2, 1)));
 
             //Act
             var matchedPrizes = bingo.Decide(markedPoints);
@@ -32,14 +30,14 @@ namespace NetCoreBingoTest
             //Arrange
             var allPrize = _horizontalPrize.Concat(_verticalPrize).Concat(_diagonalPrize).ToList();
             var bingo = new Bingo2dPrizeClincher<MyPrize>(allPrize);
-            var markedPoints = new List<MarkPoint2D>
-            {
-                new MarkPoint2D((0, 0)), new MarkPoint2D((1, 0)), new MarkPoint2D((2, 0)), new MarkPoint2D((3, 0)), new MarkPoint2D((4, 0)),
-                new MarkPoint2D((0, 1)), new MarkPoint2D((1, 1)), new MarkPoint2D((2, 1)), new MarkPoint2D((3, 1)), new MarkPoint2D((4, 1)),
-                new MarkPoint2D((0, 2)), new MarkPoint2D((1, 2)), new MarkPoint2D((2, 2)), new MarkPoint2D((3, 2)), new MarkPoint2D((4, 2)),
-                new MarkPoint2D((0, 3)), new MarkPoint2D((1, 3)), new MarkPoint2D((2, 3)), new MarkPoint2D((3, 3)), new MarkPoint2D((4, 3)),
-                new MarkPoint2D((0, 4)), new MarkPoint2D((1, 4)), new MarkPoint2D((2, 4)), new MarkPoint2D((3, 4)), new MarkPoint2D((4, 4)),
-            };
+            var markedPoints =
+                new List<MarkPoint2D>().AddMarkPoint2Ds(
+                    (0, 0, true), (1, 0, true), (2, 0, true), (3, 0, true), (4, 0, true),
+                    (0, 1, true), (1, 1, true), (2, 1, true), (3, 1, true), (4, 1, true),
+                    (0, 2, true), (1, 2, true), (2, 2, true), (3, 2, true), (4, 2, true),
+                    (0, 3, true), (1, 3, true), (2, 3, true), (3, 3, true), (4, 3, true),
+                    (0, 4, true), (1, 4, true), (2, 4, true), (3, 4, true), (4, 4, true)
+                );
 
             //Act
             var matchedPrizes = bingo.Decide(markedPoints);
@@ -72,16 +70,16 @@ namespace NetCoreBingoTest
         {
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)},
                 new MyPrize {Name = "Horizontal Line1"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 1), (1, 1), (2, 1), (3, 1), (4, 1)},
                 new MyPrize {Name = "Horizontal Line2"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)},
                 new MyPrize {Name = "Horizontal Line3"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 3), (1, 3), (2, 3), (3, 3), (4, 3)},
                 new MyPrize {Name = "Horizontal Line4"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 4), (1, 4), (2, 4), (3, 4), (4, 4)},
                 new MyPrize {Name = "Horizontal Line5"}),
         };
@@ -90,16 +88,16 @@ namespace NetCoreBingoTest
         {
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (0, 1), (0, 2), (0, 3), (0, 4)},
                 new MyPrize {Name = "Vertical Line1"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(1, 0), (1, 1), (1, 2), (1, 3), (1, 4)},
                 new MyPrize {Name = "Vertical Line2"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(2, 0), (2, 1), (2, 2), (2, 3), (2, 4)},
                 new MyPrize {Name = "Vertical Line3"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(3, 0), (3, 1), (3, 2), (3, 3), (3, 4)},
                 new MyPrize {Name = "Vertical Line4"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(4, 0), (4, 1), (4, 2), (4, 3), (4, 4)},
                 new MyPrize {Name = "Vertical Line5"}),
         };
@@ -108,7 +106,7 @@ namespace NetCoreBingoTest
         {
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)},
                 new MyPrize {Name = "Diagonal Line1"}),
-            
+
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(4, 0), (3, 1), (2, 2), (1, 3), (0, 4)},
                 new MyPrize {Name = "Diagonal Line2"}),
         };

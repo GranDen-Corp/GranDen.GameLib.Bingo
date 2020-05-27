@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
-    <Version Condition=" '$(Version)'=='' ">1.0.1</Version>
-    <PackageReleaseNotes>1.0.1 : 
-      &#xD;&#xA;Add generic type prize object support
+    <Version Condition=" '$(Version)'=='' ">1.0.2</Version>
+    <PackageReleaseNotes>1.0.2 : 
+      &#xD;&#xA;Add extension method for creating List&lt;MarkPoint2D&gt; &amp; MarkPoint2D[] collection concisely
       &#xD;&#xA;
     </PackageReleaseNotes>
   </PropertyGroup>

@@ -1,4 +1,7 @@
-﻿namespace GranDen.GameLib.Bingo.Coordinates
+﻿using System;
+using System.Linq;
+
+namespace GranDen.GameLib.Bingo.Coordinates
 {
     /// <summary>
     /// Base class for describe (X, Y) coordinate point.
@@ -36,6 +39,17 @@
             Y = y;
         }
 
+        /// <summary>
+        /// class constructor by giving "(x, y)" or "x , y" representation string
+        /// </summary>
+        /// <param name="tupleString"></param>
+		public IntPoint2D(string tupleString)
+		{
+		    var values = tupleString.Split(new[]{'(', ',', ')'} , StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
+            X = int.Parse(values[0]);
+            Y = int.Parse(values[1]);
+        }
+        
         /// <summary>
         /// Tuple deconstruct implementation
         /// </summary>

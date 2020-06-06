@@ -163,7 +163,7 @@ namespace NetCoreBingoTest
 
         private readonly List<MarkPoint2D> _marked1StRowData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(0, 0), new MarkPoint2D(1, 0), new MarkPoint2D(2, 0), new MarkPoint2D(3, 0));
+                new MarkPoint2D("(0, 0 | true)"), new MarkPoint2D("(1, 0 | true)"), new MarkPoint2D("(2, 0 | true)"), new MarkPoint2D("(3, 0 | true)"));
 
         private readonly List<MarkPoint2D> _marked2NdRowData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
@@ -179,45 +179,45 @@ namespace NetCoreBingoTest
 
         private readonly List<MarkPoint2D> _marked1StColData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(0, 0),
-                new MarkPoint2D(0, 1),
-                new MarkPoint2D(0, 2),
-                new MarkPoint2D(0, 3));
+                new MarkPoint2D("0, 0"),
+                new MarkPoint2D("0, 1"),
+                new MarkPoint2D("0, 2"),
+                new MarkPoint2D("0, 3"));
 
         private readonly List<MarkPoint2D> _marked2NdColData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(1, 0),
-                new MarkPoint2D(1, 1),
-                new MarkPoint2D(1, 2),
-                new MarkPoint2D(1, 3));
+                new MarkPoint2D("1, 0"),
+                new MarkPoint2D("1, 1"),
+                new MarkPoint2D("1, 2"),
+                new MarkPoint2D("1, 3"));
 
         private readonly List<MarkPoint2D> _marked3rdColData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(2, 0),
-                new MarkPoint2D(2, 1),
-                new MarkPoint2D(2, 2),
-                new MarkPoint2D(2, 3));
+                new MarkPoint2D("2, 0"),
+                new MarkPoint2D("2, 1"),
+                new MarkPoint2D("2, 2"),
+                new MarkPoint2D("2, 3"));
 
         private readonly List<MarkPoint2D> _marked4thColData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(3, 0),
-                new MarkPoint2D(3, 1),
-                new MarkPoint2D(3, 2),
-                new MarkPoint2D(3, 3));
+                new MarkPoint2D("3, 0"),
+                new MarkPoint2D("3, 1"),
+                new MarkPoint2D("3, 2"),
+                new MarkPoint2D("3, 3"));
 
         private readonly List<MarkPoint2D> _markedSlashDiagonalData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(0, 0),
-                new MarkPoint2D(1, 1),
-                new MarkPoint2D(2, 2),
-                new MarkPoint2D(3, 3));
+                new MarkPoint2D("0, 0"),
+                new MarkPoint2D("1, 1"),
+                new MarkPoint2D("2, 2"),
+                new MarkPoint2D("3, 3"));
 
         private readonly List<MarkPoint2D> _markedBackSlashDiagonalData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D(3, 0),
-                new MarkPoint2D(2, 1),
-                new MarkPoint2D(1, 2),
-                new MarkPoint2D(0, 3));
+                new MarkPoint2D("3, 0"),
+                new MarkPoint2D("2, 1"),
+                new MarkPoint2D("1, 2"),
+                new MarkPoint2D("0, 3"));
 
         #endregion
     }

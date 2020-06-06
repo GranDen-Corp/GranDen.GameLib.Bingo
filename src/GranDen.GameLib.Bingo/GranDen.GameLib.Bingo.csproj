@@ -19,11 +19,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\repo\granden\GranDen.GameLib.Bingo\src\GranDen.GameLib.Bingo\GranDen.GameLib.Bingo.xml</DocumentationFile>
+    <DocumentationFile>./GranDen.GameLib.Bingo.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\repo\granden\GranDen.GameLib.Bingo\src\GranDen.GameLib.Bingo\GranDen.GameLib.Bingo.xml</DocumentationFile>
+    <DocumentationFile>./GranDen.GameLib.Bingo.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

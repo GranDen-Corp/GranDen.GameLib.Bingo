@@ -38,7 +38,7 @@ namespace GranDen.GameLib.Bingo
         /// <param name="markPoint2Ds"></param>
         /// <param name="tuples"></param>
         /// <returns></returns>
-        public static MarkPoint2D[] AddMarkPoint2Ds(this MarkPoint2D[] markPoint2Ds, params (int x, int y, bool makred)[] tuples)
+        public static MarkPoint2D[] AddMarkPoint2Ds(this IEnumerable<MarkPoint2D> markPoint2Ds, params (int x, int y, bool makred)[] tuples)
         {
             return markPoint2Ds.ToList().AddMarkPoint2Ds(tuples).ToArray();
         }

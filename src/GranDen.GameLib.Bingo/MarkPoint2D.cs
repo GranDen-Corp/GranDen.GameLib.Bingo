@@ -1,4 +1,6 @@
-﻿using GranDen.GameLib.Bingo.Coordinates;
+﻿using System;
+using System.Linq;
+using GranDen.GameLib.Bingo.Coordinates;
 
 namespace GranDen.GameLib.Bingo
 {
@@ -21,6 +23,32 @@ namespace GranDen.GameLib.Bingo
         public MarkPoint2D(int x, int y, bool marked = true) : base((x, y))
         {
             Marked = marked;
+        }
+
+        /// <summary>
+        /// class constructor by giving "(x, y | true )" or "x , y | true" representation string
+        /// </summary>
+        /// <param name="markPoint2dString"></param>
+        public MarkPoint2D(string markPoint2dString) : base(FetchIntPoint2DRawString(markPoint2dString))
+        {
+            var marked_separator = markPoint2dString.LastIndexOf('|');
+            if (marked_separator == -1)
+            {
+                Marked = true;
+            }
+            else
+            {
+                var raw_markedStr = markPoint2dString.Substring(marked_separator)
+                    .Split(new[] {'|', ')'}, StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
+
+                Marked = raw_markedStr == null || bool.Parse(raw_markedStr);
+            }
+        }
+
+        private static string FetchIntPoint2DRawString(string rawString)
+        {
+            var marked_separator = rawString.LastIndexOf('|');
+            return marked_separator == -1 ? rawString : rawString.Substring(0, marked_separator);
         }
 
         /// <summary>

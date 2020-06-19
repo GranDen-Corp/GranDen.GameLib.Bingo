@@ -141,10 +141,10 @@ namespace NetCoreBingoTest
 
         private static List<PrizeLine2D> _horizontalPrize => new List<PrizeLine2D>
         {
-            new PrizeLine2D(new List<(int X, int Y)> {(0, 0), (1, 0), (2, 0), (3, 0)}, "Horizontal Line1"),
-            new PrizeLine2D(new List<(int X, int Y)> {(0, 1), (1, 1), (2, 1), (3, 1)}, "Horizontal Line2"),
-            new PrizeLine2D(new List<(int X, int Y)> {(0, 2), (1, 2), (2, 2), (3, 2)}, "Horizontal Line3"),
-            new PrizeLine2D(new List<(int X, int Y)> {(0, 3), (1, 3), (2, 3), (3, 3)}, "Horizontal Line4"),
+            "(0,0), (1,0), (2,0), (3,0) | 'Horizontal Line1'".ToPrizeLine2d(),
+            "(0,1), (1,1), (2,1), (3,1) | 'Horizontal Line2'".ToPrizeLine2d(),
+            "(0,2), (1,2), (2,2), (3,2) | 'Horizontal Line3'".ToPrizeLine2d(),
+            "(0,3), (1,3), (2,3), (3,3) | 'Horizontal Line4'".ToPrizeLine2d()
         };
 
         private static List<PrizeLine2D> _verticalPrize => new List<PrizeLine2D>

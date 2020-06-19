@@ -59,6 +59,30 @@ namespace NetCoreBingoTest
                 m => Assert.Equal(allPrize[11].Prize, m));
         }
 
+        [Fact]
+        public void TestOnlyDiagonalPrizeLine()
+        {
+            //Arrange
+            var allPrizes = _horizontalPrize.Concat(_verticalPrize).Concat(_diagonalPrize).ToArray(); 
+            var bingo = new Bingo2dPrizeClincher<MyPrize>(allPrizes);
+            var markedPoints = new MarkPoint2D[] { }.AddMarkPoint2Ds(
+                (0, 0, true), (1, 0, true),
+                (0, 1, false), (1, 1, true), (2, 1, true),
+                (0, 2, false), (1, 2, false), (2, 2, true),
+                (0, 3, false), (1, 3, false), (2, 3, false), (3, 3, true),
+                (0, 4, false), (1, 4, false), (2, 4, false), (3, 4, false), (4, 4, true)
+            );
+
+            //Act
+            var matchedPrizes = bingo.Decide(markedPoints);
+            
+            //Assert
+            var myPrizes = matchedPrizes as MyPrize[] ?? matchedPrizes.ToArray();
+            Assert.True(myPrizes.Length == 1);
+            Assert.Collection(myPrizes,
+                m => Assert.Equal(allPrizes[10].Prize, m));
+        }
+        
         #region Helper Class and Properties
 
         private struct MyPrize
@@ -66,7 +90,7 @@ namespace NetCoreBingoTest
             public string Name { get; set; }
         }
 
-        private static List<PrizeLine2D<MyPrize>> _horizontalPrize => new List<PrizeLine2D<MyPrize>>
+        private static IEnumerable<PrizeLine2D<MyPrize>> _horizontalPrize => new List<PrizeLine2D<MyPrize>>
         {
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)},
                 new MyPrize {Name = "Horizontal Line1"}),
@@ -84,7 +108,7 @@ namespace NetCoreBingoTest
                 new MyPrize {Name = "Horizontal Line5"}),
         };
 
-        private static List<PrizeLine2D<MyPrize>> _verticalPrize => new List<PrizeLine2D<MyPrize>>
+        private static IEnumerable<PrizeLine2D<MyPrize>> _verticalPrize => new List<PrizeLine2D<MyPrize>>
         {
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (0, 1), (0, 2), (0, 3), (0, 4)},
                 new MyPrize {Name = "Vertical Line1"}),
@@ -102,7 +126,7 @@ namespace NetCoreBingoTest
                 new MyPrize {Name = "Vertical Line5"}),
         };
 
-        private static List<PrizeLine2D<MyPrize>> _diagonalPrize => new List<PrizeLine2D<MyPrize>>
+        private static IEnumerable<PrizeLine2D<MyPrize>> _diagonalPrize => new List<PrizeLine2D<MyPrize>>
         {
             new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)},
                 new MyPrize {Name = "Diagonal Line1"}),

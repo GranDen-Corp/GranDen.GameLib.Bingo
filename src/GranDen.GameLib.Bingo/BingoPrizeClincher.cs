@@ -23,13 +23,13 @@ namespace GranDen.GameLib.Bingo
         /// Create a 2D line bingo game line detection engine
         /// </summary>
         /// <param name="prizeLines"></param>
-        public Bingo2dPrizeClincher(List<PrizeLine2D<T>> prizeLines)
+        public Bingo2dPrizeClincher(IEnumerable<PrizeLine2D<T>> prizeLines)
         {
-            _prizeLines = prizeLines;
+            _prizeLines = prizeLines.ToList();
         }
 
         /// <summary>
-        /// Decide currently achieved bingo line(s).
+        /// Decide currently achieved bingo line(s)
         /// </summary>
         /// <param name="inputs">The mark points in (x, y, true|false) tuple format</param>
         /// <returns></returns>
@@ -52,6 +52,16 @@ namespace GranDen.GameLib.Bingo
             }
 
             return matchedPrizes;
+        }
+
+        /// <summary>
+        /// Decide currently achieved bingo line(s)
+        /// </summary>
+        /// <param name="inputs"></param>
+        /// <returns></returns>
+        public IEnumerable<T> Decide(IEnumerable<MarkPoint2D> inputs)
+        {
+            return Decide(inputs.ToList()).ToArray();
         }
     }
 }

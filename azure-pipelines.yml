@@ -9,7 +9,6 @@ trigger:
 - feature/*
 - bugfix/*
 
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -21,7 +20,7 @@ variables:
 stages:
 - stage: Build
   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
-  displayName: Build stage
+  displayName: Build source project(s)
   jobs:
   - job: Build
     steps:
@@ -40,6 +39,7 @@ stages:
 
 - stage: Test
   dependsOn: []
+  displayName: Run test project(s)
   jobs:
   - job: Test
     steps:
@@ -59,6 +59,7 @@ stages:
 
 - stage: Publish
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  displayName: Publish debug version NuGet package(s)
   jobs:
   - job: Publish
     steps:

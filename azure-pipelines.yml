@@ -51,12 +51,12 @@ stages:
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResults/Coverage/*.cobertura.xml'
+          summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResult/Coverage/*.cobertura.xml'
           failIfCoverageEmpty: true
         displayName: "Publish code coverage report"
 
 - stage: Publish
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
   jobs:
   - job: Publish
     steps:

@@ -14,8 +14,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  sourceProject: 'src/GranDen.GameLib.Bingo/GranDen.GameLib.Bingo.csproj'
-  testNetCoreProject: 'test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj'
+  sourceProject: 'src/**/*.csproj'
+  testNetCoreProject: 'test/**/*Test.csproj'
 
 stages:
 - stage: Build_stage
@@ -29,7 +29,7 @@ stages:
         command: restore
         projects: '$(sourceProject)'
         feedsToUse: 'select'
-      displayName: "Restore source project's Nuget"
+      displayName: "Restore source project's NuGet package(s)"
     - task: DotNetCoreCLI@2
       inputs:
         command: build
@@ -47,13 +47,13 @@ stages:
         inputs:
           command: test
           projects: '$(testNetCoreProject)'
-          arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+          arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true
           publishTestResults: true
         displayName: "Run NetCore test project"
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResults/Coverage/*.cobertura.xml'
+          summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResult/Coverage/*.cobertura.xml'
         displayName: "Publish code coverage report"
 
 - stage: Publish_stage

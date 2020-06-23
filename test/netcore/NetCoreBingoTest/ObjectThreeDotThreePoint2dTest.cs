@@ -48,6 +48,7 @@ namespace NetCoreBingoTest
             Assert.Collection(match2, m1 => Assert.Equal(prize2, m1));
 
             Assert.True(match3.Count == 1);
+            ;
             var prize3 = _horizontalPrize[2].Prize;
             Assert.Collection(match3, m1 => Assert.Equal(prize3, m1));
 

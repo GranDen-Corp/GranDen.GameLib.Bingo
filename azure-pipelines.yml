@@ -14,8 +14,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  sourceProject: 'src/**/*.csproj'
-  testNetCoreProject: 'test/**/*Test.csproj'
+  sourceProject: 'src/GranDen.GameLib.Bingo/GranDen.GameLib.Bingo.csproj'
+  testNetCoreProject: 'test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj'
 
 stages:
 - stage: Build_stage
@@ -47,14 +47,13 @@ stages:
         inputs:
           command: test
           projects: '$(testNetCoreProject)'
-          arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true'
+          arguments: '--configuration $(buildConfiguration)  /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
           publishTestResults: true
         displayName: "Run NetCore test project"
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResult/Coverage/*.cobertura.xml'
-          failIfCoverageEmpty: true
+          summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResults/Coverage/*.cobertura.xml'
         displayName: "Publish code coverage report"
 
 - stage: Publish_stage

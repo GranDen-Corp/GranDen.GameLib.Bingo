@@ -2,19 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+
     <IsPackable>false</IsPackable>
-    <UseSourceLink>true</UseSourceLink>
-    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-    <Exclude>[xunit.*]*</Exclude>
-    <CoverletOutput>TestResult/Coverage/</CoverletOutput>
-    <CollectCoverage>false</CollectCoverage>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="TestResults\**" />
     <EmbeddedResource Remove="TestResults\**" />
     <None Remove="TestResults\**" />
-    <None Remove="TestResult\Coverage\coverage.cobertura.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +31,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\GranDen.GameLib.Bingo\GranDen.GameLib.Bingo.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="TestResult\Coverage" />
   </ItemGroup>
 
 </Project>

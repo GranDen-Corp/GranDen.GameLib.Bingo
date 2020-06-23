@@ -20,6 +20,7 @@ variables:
 
 stages:
 - stage: Build
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
   displayName: Build stage
   jobs:
   - job: Build

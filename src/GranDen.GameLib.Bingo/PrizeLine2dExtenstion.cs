@@ -1,6 +1,8 @@
 ﻿using GranDen.GameLib.Bingo.Coordinates;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace GranDen.GameLib.Bingo
@@ -8,15 +10,11 @@ namespace GranDen.GameLib.Bingo
     /// <summary>
     /// Utility methods for easier construct PrizeLine2D objects collection
     /// </summary>
-    public static class PrizeLine2dExtension
+    public static class PrizeLine2dExtenstion
     {
-        /// <summary>
-        /// Regular expression for parsing string representation of <c>PrizeLine2D</c>
-        /// </summary>
-        public const string PrizeLine2dRegStr = "^\\s*(?:(?<tuple>\\(\\s*\\d+\\s*,\\s*\\d+\\s*\\))\\s*,?\\s*)+(?:\\|\\s*){1}(?:\\'|\\\"){1}(?<name>(.+))(?:\\'|\\\")$";
-
-        private static readonly Regex _Regex = new Regex(PrizeLine2dRegStr,
-            RegexOptions.CultureInvariant | RegexOptions.Compiled
+        private static readonly Regex _Regex = new Regex(
+        "^\\s*(?:(?<tuple>\\(\\s*\\d+\\s*,\\s*\\d+\\s*\\))\\s*,?\\s*)+(?:\\|\\s*){1}(?:\\'|\\\"){1}(?<name>(.+))(?:\\'|\\\")$",
+        RegexOptions.CultureInvariant | RegexOptions.Compiled
         );
         
         /// <summary>

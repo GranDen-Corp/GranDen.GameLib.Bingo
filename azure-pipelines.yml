@@ -39,6 +39,7 @@ stages:
       displayName: "Build source project"
 
 - stage: Test
+  dependsOn: []
   jobs:
   - job: Test
     steps:

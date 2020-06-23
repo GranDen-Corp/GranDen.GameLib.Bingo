@@ -18,7 +18,7 @@ variables:
   testNetCoreProject: 'test/**/*Test.csproj'
 
 stages:
-- stage: Build
+- stage: Build_stage
   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
   displayName: Build source project(s)
   jobs:
@@ -37,7 +37,7 @@ stages:
         arguments: '--configuration $(buildConfiguration)'
       displayName: "Build source project"
 
-- stage: Test
+- stage: Test_stage
   dependsOn: []
   displayName: Run test project(s)
   jobs:
@@ -57,8 +57,11 @@ stages:
           failIfCoverageEmpty: true
         displayName: "Publish code coverage report"
 
-- stage: Publish
+- stage: Publish_stage
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  dependsOn:
+    - Build_stage
+    - Test_stage
   displayName: Publish debug version NuGet package(s)
   jobs:
   - job: Publish

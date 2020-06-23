@@ -54,6 +54,7 @@ stages:
         inputs:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: '$(Build.SourcesDirectory)/**/TestResult/Coverage/*.cobertura.xml'
+          failIfCoverageEmpty: true
         displayName: "Publish code coverage report"
 
 - stage: Publish_stage

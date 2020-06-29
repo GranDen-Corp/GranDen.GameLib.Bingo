@@ -39,6 +39,7 @@ stages:
 
 - stage: Test_stage
   condition: and(succeededOrFailed(), in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI', 'PullRequest'))
+  dependsOn: Build_stage
   displayName: Run test project(s)
   jobs:
   - job: Test

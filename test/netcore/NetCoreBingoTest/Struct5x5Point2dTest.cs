@@ -63,7 +63,7 @@ namespace NetCoreBingoTest
         public void TestOnlyDiagonalPrizeLine()
         {
             //Arrange
-            var allPrizes = _horizontalPrize.Concat(_verticalPrize).Concat(_diagonalPrize).ToArray(); 
+            var allPrizes = _horizontalPrize.Concat(_verticalPrize).Concat(_diagonalPrize).ToArray();
             var bingo = new Bingo2dPrizeClincher<MyPrize>(allPrizes);
             var markedPoints = new MarkPoint2D[] { }.AddMarkPoint2Ds(
                 (0, 0, true), (1, 0, true),
@@ -75,14 +75,14 @@ namespace NetCoreBingoTest
 
             //Act
             var matchedPrizes = bingo.Decide(markedPoints);
-            
+
             //Assert
             var myPrizes = matchedPrizes as MyPrize[] ?? matchedPrizes.ToArray();
             Assert.True(myPrizes.Length == 1);
             Assert.Collection(myPrizes,
                 m => Assert.Equal(allPrizes[10].Prize, m));
         }
-        
+
         #region Helper Class and Properties
 
         private struct MyPrize

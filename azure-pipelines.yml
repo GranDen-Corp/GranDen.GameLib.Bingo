@@ -38,7 +38,8 @@ stages:
       displayName: "Build source project"
 
 - stage: Test_stage
-  dependsOn: []
+  condition: and(not(failed('Build_stage')), in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI', 'PullRequest'))
+  dependsOn: Build_stage
   displayName: Run test project(s)
   jobs:
   - job: Test

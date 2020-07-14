@@ -92,46 +92,121 @@ namespace NetCoreBingoTest
 
         private static IEnumerable<PrizeLine2D<MyPrize>> _horizontalPrize => new List<PrizeLine2D<MyPrize>>
         {
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 0),
+                    (1, 0),
+                    (2, 0),
+                    (3, 0),
+                    (4, 0)
+                },
                 new MyPrize {Name = "Horizontal Line1"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 1), (1, 1), (2, 1), (3, 1), (4, 1)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 1),
+                    (1, 1),
+                    (2, 1),
+                    (3, 1),
+                    (4, 1)
+                },
                 new MyPrize {Name = "Horizontal Line2"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 2),
+                    (1, 2),
+                    (2, 2),
+                    (3, 2),
+                    (4, 2)
+                },
                 new MyPrize {Name = "Horizontal Line3"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 3), (1, 3), (2, 3), (3, 3), (4, 3)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 3),
+                    (1, 3),
+                    (2, 3),
+                    (3, 3),
+                    (4, 3)
+                },
                 new MyPrize {Name = "Horizontal Line4"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 4), (1, 4), (2, 4), (3, 4), (4, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 4),
+                    (1, 4),
+                    (2, 4),
+                    (3, 4),
+                    (4, 4)
+                },
                 new MyPrize {Name = "Horizontal Line5"}),
         };
 
         private static IEnumerable<PrizeLine2D<MyPrize>> _verticalPrize => new List<PrizeLine2D<MyPrize>>
         {
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (0, 1), (0, 2), (0, 3), (0, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 0),
+                    (0, 1),
+                    (0, 2),
+                    (0, 3),
+                    (0, 4)
+                },
                 new MyPrize {Name = "Vertical Line1"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(1, 0), (1, 1), (1, 2), (1, 3), (1, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (1, 0),
+                    (1, 1),
+                    (1, 2),
+                    (1, 3),
+                    (1, 4)
+                },
                 new MyPrize {Name = "Vertical Line2"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(2, 0), (2, 1), (2, 2), (2, 3), (2, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (2, 0),
+                    (2, 1),
+                    (2, 2),
+                    (2, 3),
+                    (2, 4)
+                },
                 new MyPrize {Name = "Vertical Line3"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(3, 0), (3, 1), (3, 2), (3, 3), (3, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (3, 0),
+                    (3, 1),
+                    (3, 2),
+                    (3, 3),
+                    (3, 4)
+                },
                 new MyPrize {Name = "Vertical Line4"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(4, 0), (4, 1), (4, 2), (4, 3), (4, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (4, 0),
+                    (4, 1),
+                    (4, 2),
+                    (4, 3),
+                    (4, 4)
+                },
                 new MyPrize {Name = "Vertical Line5"}),
         };
 
         private static IEnumerable<PrizeLine2D<MyPrize>> _diagonalPrize => new List<PrizeLine2D<MyPrize>>
         {
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (0, 0),
+                    (1, 1),
+                    (2, 2),
+                    (3, 3),
+                    (4, 4)
+                },
                 new MyPrize {Name = "Diagonal Line1"}),
-
-            new PrizeLine2D<MyPrize>(new List<(int X, int Y)> {(4, 0), (3, 1), (2, 2), (1, 3), (0, 4)},
+            new PrizeLine2D<MyPrize>(new List<(int X, int Y)>
+                {
+                    (4, 0),
+                    (3, 1),
+                    (2, 2),
+                    (1, 3),
+                    (0, 4)
+                },
                 new MyPrize {Name = "Diagonal Line2"}),
         };
 

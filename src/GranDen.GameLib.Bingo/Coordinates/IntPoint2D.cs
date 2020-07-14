@@ -12,6 +12,7 @@ namespace GranDen.GameLib.Bingo.Coordinates
         /// X coordinate (horizontal)
         /// </summary>
         public int X { get; set; }
+
         /// <summary>
         /// Y coordinate (vertical)
         /// </summary>
@@ -43,13 +44,14 @@ namespace GranDen.GameLib.Bingo.Coordinates
         /// class constructor by giving "(x, y)" or "x , y" representation string
         /// </summary>
         /// <param name="tupleString"></param>
-		public IntPoint2D(string tupleString)
-		{
-		    var values = tupleString.Split(new[]{'(', ',', ')'} , StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
+        public IntPoint2D(string tupleString)
+        {
+            var values = tupleString.Split(new[] {'(', ',', ')'}, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim())
+                .ToArray();
             X = int.Parse(values[0]);
             Y = int.Parse(values[1]);
         }
-        
+
         /// <summary>
         /// Tuple deconstruct implementation
         /// </summary>

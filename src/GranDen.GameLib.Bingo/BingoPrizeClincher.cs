@@ -11,7 +11,7 @@ namespace GranDen.GameLib.Bingo
         {
         }
     }
-    
+
     /// <summary>
     /// 2D Bingo game achieved line detection engine
     /// </summary>
@@ -45,7 +45,7 @@ namespace GranDen.GameLib.Bingo
             //Note: should use nested tuple dictionary lookup via organize inputs array for multi-core/threads processing, Or just using Linq to check prizeLines' Points value matches in input?
             foreach (var prizeLine in _prizeLines)
             {
-                if (prizeLine.Points.All(prizePoint => inputs.Any( i => i.Marked && i.X == prizePoint.X && i.Y == prizePoint.Y)))
+                if (prizeLine.Points.All(prizePoint => inputs.Any(i => i.Marked && i.X == prizePoint.X && i.Y == prizePoint.Y)))
                 {
                     matchedPrizes.Add(prizeLine.Prize);
                 }

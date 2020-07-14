@@ -180,58 +180,42 @@ namespace NetCoreBingoTest
 
         private readonly List<MarkPoint2D> _marked1StRowData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(0, 0 ),
-            new MarkPoint2D(1, 0 ),
-            new MarkPoint2D(2, 0 )
+            new MarkPoint2D(0, 0), new MarkPoint2D(1, 0), new MarkPoint2D(2, 0)
         };
 
         private readonly List<MarkPoint2D> _marked2NdRowData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(0, 1),
-            new MarkPoint2D(1, 1),
-            new MarkPoint2D(2, 1)
+            new MarkPoint2D(0, 1), new MarkPoint2D(1, 1), new MarkPoint2D(2, 1)
         };
 
         private readonly List<MarkPoint2D> _marked3RdRowData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(0, 2),
-            new MarkPoint2D(1, 2),
-            new MarkPoint2D(2, 2)
+            new MarkPoint2D(0, 2), new MarkPoint2D(1, 2), new MarkPoint2D(2, 2)
         };
 
         private readonly List<MarkPoint2D> _marked1StColData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(0, 0),
-            new MarkPoint2D(0, 1),
-            new MarkPoint2D(0, 2)
+            new MarkPoint2D(0, 0), new MarkPoint2D(0, 1), new MarkPoint2D(0, 2)
         };
 
         private readonly List<MarkPoint2D> _marked2NdColData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(1, 0),
-            new MarkPoint2D(1, 1),
-            new MarkPoint2D(1, 2)
+            new MarkPoint2D(1, 0), new MarkPoint2D(1, 1), new MarkPoint2D(1, 2)
         };
 
         private readonly List<MarkPoint2D> _marked3rdColData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(2, 0),
-            new MarkPoint2D(2, 1),
-            new MarkPoint2D(2, 2)
+            new MarkPoint2D(2, 0), new MarkPoint2D(2, 1), new MarkPoint2D(2, 2)
         };
 
         private readonly List<MarkPoint2D> _markedSlashDiagonalData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(0, 0),
-            new MarkPoint2D(1, 1),
-            new MarkPoint2D(2, 2)
+            new MarkPoint2D(0, 0), new MarkPoint2D(1, 1), new MarkPoint2D(2, 2)
         };
 
         private readonly List<MarkPoint2D> _markedBackSlashDiagonalData = new List<MarkPoint2D>
         {
-            new MarkPoint2D(3, 0),
-            new MarkPoint2D(2, 1),
-            new MarkPoint2D(1, 2)
+            new MarkPoint2D(3, 0), new MarkPoint2D(2, 1), new MarkPoint2D(1, 2)
         };
 
         #endregion

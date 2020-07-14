@@ -44,7 +44,7 @@ namespace GranDen.GameLib.Bingo
         /// Bingo prize
         /// </summary>
         public T Prize { get; }
-        
+
         /// <summary>
         /// Bingo prize line points
         /// </summary>

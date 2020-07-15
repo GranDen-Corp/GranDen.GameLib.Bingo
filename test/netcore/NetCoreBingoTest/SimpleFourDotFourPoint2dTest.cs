@@ -163,7 +163,8 @@ namespace NetCoreBingoTest
 
         private readonly List<MarkPoint2D> _marked1StRowData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(
-                new MarkPoint2D("(0, 0 | true)"), new MarkPoint2D("(1, 0 | true)"), new MarkPoint2D("(2, 0 | true)"), new MarkPoint2D("(3, 0 | true)"));
+                new MarkPoint2D("(0, 0 | true)"), new MarkPoint2D("(1, 0 | true)"), new MarkPoint2D("(2, 0 | true)"),
+                new MarkPoint2D("(3, 0 | true)"));
 
         private readonly List<MarkPoint2D> _marked2NdRowData =
             new List<MarkPoint2D>().AddMarkPoint2Ds(

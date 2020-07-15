@@ -19,14 +19,15 @@ namespace GranDen.GameLib.Bingo
             pointList.AddRange(markPoint2Ds);
             return pointList;
         }
-        
+
         /// <summary>
         /// Add many (x, y, true|false) tuples to a LList&lt;<see cref="MarkPoint2D"/>&gt; collectionn
         /// </summary>
         /// <param name="pointList"></param>
         /// <param name="tuples"></param>
         /// <returns></returns>
-        public static List<MarkPoint2D> AddMarkPoint2Ds(this List<MarkPoint2D> pointList, params (int x, int y, bool marked)[] tuples)
+        public static List<MarkPoint2D> AddMarkPoint2Ds(this List<MarkPoint2D> pointList,
+            params (int x, int y, bool marked)[] tuples)
         {
             pointList.AddMarkPoint2Ds(tuples.Select(t => new MarkPoint2D(t)).ToArray());
             return pointList;
@@ -38,7 +39,8 @@ namespace GranDen.GameLib.Bingo
         /// <param name="markPoint2Ds"></param>
         /// <param name="tuples"></param>
         /// <returns></returns>
-        public static MarkPoint2D[] AddMarkPoint2Ds(this IEnumerable<MarkPoint2D> markPoint2Ds, params (int x, int y, bool makred)[] tuples)
+        public static MarkPoint2D[] AddMarkPoint2Ds(this IEnumerable<MarkPoint2D> markPoint2Ds,
+            params (int x, int y, bool makred)[] tuples)
         {
             return markPoint2Ds.ToList().AddMarkPoint2Ds(tuples).ToArray();
         }

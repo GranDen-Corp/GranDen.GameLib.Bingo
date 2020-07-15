@@ -17,7 +17,7 @@ namespace GranDen.GameLib.Bingo
     /// </summary>
     public class Bingo2dPrizeClincher<T>
     {
-        private readonly List<PrizeLine2D<T>> _prizeLines;
+        private readonly IList<PrizeLine2D<T>> _prizeLines;
 
         /// <summary>
         /// Create a 2D line bingo game line detection engine
@@ -33,23 +33,23 @@ namespace GranDen.GameLib.Bingo
         /// </summary>
         /// <param name="inputs">The mark points in (x, y, true|false) tuple format</param>
         /// <returns></returns>
-        public List<T> Decide(List<MarkPoint2D> inputs)
+        public IEnumerable<T> Decide(IEnumerable<MarkPoint2D> inputs)
         {
             var matchedPrizes = new List<T>();
 
-            if (inputs == null || !inputs.Any())
+            var markPoint2Ds = inputs as MarkPoint2D[] ?? inputs.ToArray();
+            if (!markPoint2Ds.Any())
             {
                 return matchedPrizes;
             }
 
-            //Note: should use nested tuple dictionary lookup via organize inputs array for multi-core/threads processing, Or just using Linq to check prizeLines' Points value matches in input?
-            foreach (var prizeLine in _prizeLines)
-            {
-                if (prizeLine.Points.All(prizePoint => inputs.Any(i => i.Marked && i.X == prizePoint.X && i.Y == prizePoint.Y)))
-                {
-                    matchedPrizes.Add(prizeLine.Prize);
-                }
-            }
+            matchedPrizes.AddRange(from prizeLine in _prizeLines
+                where prizeLine.Points.All(
+                    prizePoint =>
+                    {
+                        return markPoint2Ds.Any(i => i.Marked && i.X == prizePoint.X && i.Y == prizePoint.Y);
+                    })
+                select prizeLine.Prize);
 
             return matchedPrizes;
         }
@@ -57,11 +57,11 @@ namespace GranDen.GameLib.Bingo
         /// <summary>
         /// Decide currently achieved bingo line(s)
         /// </summary>
-        /// <param name="inputs"></param>
+        /// <param name="inputs">The mark points in (x, y, true|false) tuple format</param>
         /// <returns></returns>
-        public IEnumerable<T> Decide(IEnumerable<MarkPoint2D> inputs)
+        public IList<T> Decide(List<MarkPoint2D> inputs)
         {
-            return Decide(inputs.ToList()).ToArray();
+            return Decide(inputs as IEnumerable<MarkPoint2D>).ToList();
         }
     }
 }

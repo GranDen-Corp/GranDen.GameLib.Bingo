@@ -4,7 +4,7 @@ using System.Linq;
 using GranDen.GameLib.Bingo;
 using Xunit;
 
-namespace NetCoreBingoTest
+namespace Net6BingoTest
 {
     public class ObjectThreeDotThreePoint2dTest
     {
@@ -146,7 +146,7 @@ namespace NetCoreBingoTest
             }
         }
 
-        private static List<PrizeLine2D<DemoPrize>> _horizontalPrize => new List<PrizeLine2D<DemoPrize>>
+        private static List<PrizeLine2D<DemoPrize>> _horizontalPrize => new()
         {
             new PrizeLine2D<DemoPrize>(new List<(int X, int Y)> {(0, 0), (1, 0), (2, 0)},
                 new DemoPrize {PrizeName = "Horizontal_Line1", PrizeValue = 101}),
@@ -156,7 +156,7 @@ namespace NetCoreBingoTest
                 new DemoPrize {PrizeName = "Horizontal_Line3", PrizeValue = 103})
         };
 
-        private static List<PrizeLine2D<DemoPrize>> _verticalPrize => new List<PrizeLine2D<DemoPrize>>
+        private static List<PrizeLine2D<DemoPrize>> _verticalPrize => new()
         {
             new PrizeLine2D<DemoPrize>(new List<(int X, int Y)> {(0, 0), (0, 1), (0, 2)},
                 new DemoPrize {PrizeName = "Vertical_Line1", PrizeValue = 201}),
@@ -166,7 +166,7 @@ namespace NetCoreBingoTest
                 new DemoPrize {PrizeName = "Vertical_Line3", PrizeValue = 203})
         };
 
-        private static List<PrizeLine2D<DemoPrize>> _diagonalPrize => new List<PrizeLine2D<DemoPrize>>
+        private static List<PrizeLine2D<DemoPrize>> _diagonalPrize => new()
         {
             new PrizeLine2D<DemoPrize>(new List<(int X, int Y)> {(0, 0), (1, 1), (2, 2)},
                 new DemoPrize {PrizeName = "Diagonal_Line1", PrizeValue = 301}),
@@ -174,46 +174,46 @@ namespace NetCoreBingoTest
                 new DemoPrize {PrizeName = "Diagonal_Line1", PrizeValue = 302}),
         };
 
-        private static List<PrizeLine2D<DemoPrize>> _allPrize => _horizontalPrize.Concat(_horizontalPrize)
-            .Concat(_verticalPrize).Concat(_diagonalPrize).ToList();
+        // private static List<PrizeLine2D<DemoPrize>> _allPrize => _horizontalPrize.Concat(_horizontalPrize)
+        // .Concat(_verticalPrize).Concat(_diagonalPrize).ToList();
 
 
-        private readonly List<MarkPoint2D> _marked1StRowData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _marked1StRowData = new()
         {
             new MarkPoint2D(0, 0), new MarkPoint2D(1, 0), new MarkPoint2D(2, 0)
         };
 
-        private readonly List<MarkPoint2D> _marked2NdRowData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _marked2NdRowData = new()
         {
             new MarkPoint2D(0, 1), new MarkPoint2D(1, 1), new MarkPoint2D(2, 1)
         };
 
-        private readonly List<MarkPoint2D> _marked3RdRowData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _marked3RdRowData = new()
         {
             new MarkPoint2D(0, 2), new MarkPoint2D(1, 2), new MarkPoint2D(2, 2)
         };
 
-        private readonly List<MarkPoint2D> _marked1StColData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _marked1StColData = new()
         {
             new MarkPoint2D(0, 0), new MarkPoint2D(0, 1), new MarkPoint2D(0, 2)
         };
 
-        private readonly List<MarkPoint2D> _marked2NdColData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _marked2NdColData = new()
         {
             new MarkPoint2D(1, 0), new MarkPoint2D(1, 1), new MarkPoint2D(1, 2)
         };
 
-        private readonly List<MarkPoint2D> _marked3rdColData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _marked3rdColData = new()
         {
             new MarkPoint2D(2, 0), new MarkPoint2D(2, 1), new MarkPoint2D(2, 2)
         };
 
-        private readonly List<MarkPoint2D> _markedSlashDiagonalData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _markedSlashDiagonalData = new()
         {
             new MarkPoint2D(0, 0), new MarkPoint2D(1, 1), new MarkPoint2D(2, 2)
         };
 
-        private readonly List<MarkPoint2D> _markedBackSlashDiagonalData = new List<MarkPoint2D>
+        private readonly List<MarkPoint2D> _markedBackSlashDiagonalData = new()
         {
             new MarkPoint2D(3, 0), new MarkPoint2D(2, 1), new MarkPoint2D(1, 2)
         };

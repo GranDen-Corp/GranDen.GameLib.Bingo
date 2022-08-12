@@ -3,7 +3,7 @@ using System.Linq;
 using GranDen.GameLib.Bingo;
 using Xunit;
 
-namespace NetCoreBingoTest
+namespace Net6BingoTest
 {
     public class Struct5x5Point2dTest
     {
@@ -65,7 +65,7 @@ namespace NetCoreBingoTest
             //Arrange
             var allPrizes = _horizontalPrize.Concat(_verticalPrize).Concat(_diagonalPrize).ToArray();
             var bingo = new Bingo2dPrizeClincher<MyPrize>(allPrizes);
-            var markedPoints = new MarkPoint2D[] { }.AddMarkPoint2Ds(
+            var markedPoints = System.Array.Empty<MarkPoint2D>().AddMarkPoint2Ds(
                 (0, 0, true), (1, 0, true),
                 (0, 1, false), (1, 1, true), (2, 1, true),
                 (0, 2, false), (1, 2, false), (2, 2, true),

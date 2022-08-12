@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3D34B0D9-98A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{58FC40A0-7F0F-4CBB-8D0F-B9A6C3A73691}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetCore", "NetCore", "{05413DC4-D319-4E55-B64F-C726A3726473}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net6", "Net6", "{05413DC4-D319-4E55-B64F-C726A3726473}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreBingoTest", "test\netcore\NetCoreBingoTest\NetCoreBingoTest.csproj", "{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net6BingoTest", "test\net6\Net6BingoTest\Net6BingoTest.csproj", "{EED79BDE-DB99-487F-B6DF-F896BD6FE5E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4994ACE8-B1AE-4739-87A5-5AD8C8E71EC5}"
 	ProjectSection(SolutionItems) = preProject

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj",
+                "${workspaceFolder}/test/net6/Net6BingoTest/Net6BingoTest.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj",
+                "${workspaceFolder}/test/net6/Net6BingoTest/Net6BingoTest.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,9 +32,8 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/test/netcore/NetCoreBingoTest/NetCoreBingoTest.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "--project",
+                "${workspaceFolder}/test/net6/Net6BingoTest/Net6BingoTest.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -9,8 +9,12 @@ trigger:
   - bugfix/*
 pool:
   vmImage: ubuntu-latest
+parameters:
+  - name: usePreviewSDK
+    type: boolean
+    default: false
 variables:
-  sdkVersion: 3.1.x
+  sdkVersion: 6.x
   buildConfiguration: Release
   sourceProject: src/**/*.csproj
   testNetCoreProject: test/**/*Test.csproj
@@ -22,10 +26,10 @@ stages:
       - job: Build
         steps:
           - task: UseDotNet@2
-            displayName: Use .NET 3.1 SDK
+            displayName: Use .NET 6 SDK
             inputs:
               version: $(sdkVersion)
-              includePreviewVersions: false
+              includePreviewVersions: ${{ parameters.usePreviewSDK }}
               packageType: sdk
           - task: DotNetCoreCLI@2
             displayName: Restore source project's NuGet package(s)
@@ -50,10 +54,10 @@ stages:
       - job: Test
         steps:
           - task: UseDotNet@2
-            displayName: Use .NET 3.1 SDK
+            displayName: Use .NET 6 SDK
             inputs:
               version: $(sdkVersion)
-              includePreviewVersions: false
+              includePreviewVersions: ${{ parameters.usePreviewSDK }}
               packageType: sdk
           - task: DotNetCoreCLI@2
             inputs:
@@ -83,10 +87,10 @@ stages:
       - job: Publish
         steps:
           - task: UseDotNet@2
-            displayName: Use .NET 3.1 SDK
+            displayName: Use .NET 6 SDK
             inputs:
               version: $(sdkVersion)
-              includePreviewVersions: false
+              includePreviewVersions: ${{ parameters.usePreviewSDK }}
               packageType: sdk
           - task: PowerShell@2
             displayName: Fetch version number from Directory.Build.props file
@@ -132,6 +136,6 @@ stages:
           - task: PublishSymbols@2
             displayName: 'Publish pdb file(s)'
             inputs:
-              IndexSources: false,
+              IndexSources: false
               SearchPattern: '**/src/**/bin/**/*.pdb'
               SymbolServerType: TeamServices
